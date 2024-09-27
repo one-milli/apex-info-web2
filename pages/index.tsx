@@ -1,3 +1,10 @@
+import MapRotation from "@/components/MapRotation";
 export default function Home() {
-  return <>Hello</>;
+  return (
+    <>
+      <div className="m-auto">
+        <MapRotation />
+      </div>
+    </>
+  );
 }
