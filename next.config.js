@@ -1,5 +1,14 @@
+// next.config.js
+
+const withPWA = require("next-pwa")({
+  dest: "public", // サービスワーカーとキャッシュファイルの出力先
+  register: true, // クライアント側でサービスワーカーを登録するかどうか
+  skipWaiting: true, // 新しいサービスワーカーが即座にアクティブになるようにする
+  disable: process.env.NODE_ENV === "development", // 開発環境ではPWAを無効化
+});
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withPWA({
   webpack(config) {
     // 既存のSVGルールを見つけて除外
     const fileLoaderRule = config.module.rules.find(
@@ -29,6 +38,6 @@ const nextConfig = {
       },
     ],
   },
-};
+});
 
-export default nextConfig;
+module.exports = nextConfig;
