@@ -110,8 +110,8 @@ const MapRotation: React.FC = () => {
   };
 
   return (
-    <div className="map-rotation w-[90vw] mt-8">
-      {renderMapRotation("battle_royale", "バトルロワイヤル", data.battle_royale)}
+    <div className="map-rotation w-[95vw] sm:w-[90vw] mt-8">
+      {renderMapRotation("battle_royale", "バトルロイヤル", data.battle_royale)}
       {renderMapRotation("ranked", "ランク", data.ranked)}
     </div>
   );
