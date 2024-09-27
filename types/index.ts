@@ -1,5 +1,4 @@
-// 共通のマップ情報
-export interface BaseMapInfo {
+export interface MapRotationEntry {
   start: number;
   end: number;
   readableDate_start: string;
@@ -8,25 +7,21 @@ export interface BaseMapInfo {
   code: string;
   DurationInSecs: number;
   DurationInMinutes: number;
-}
-
-// 現在のマップ情報に追加のフィールドを持つ
-export interface CurrentMapInfo extends BaseMapInfo {
   asset: string;
-  remainingSecs: number;
-  remainingMins: number;
-  remainingTimer: string;
+  remainingSecs?: number;
+  remainingMins?: number;
+  remainingTimer?: string;
+  isActive?: boolean;
+  eventName?: string;
 }
 
-// APIからの完全なレスポンス
-export interface MapRotationData {
-  current: CurrentMapInfo;
-  next: BaseMapInfo;
+export interface MapRotationMode {
+  current: MapRotationEntry;
+  next: MapRotationEntry;
 }
 
-// クライアントに返すAPIレスポンス
 export interface ApiResponse {
-  current: CurrentMapInfo;
-  next: BaseMapInfo;
-  fetchedAt: string; // データ取得時刻を追加
+  battle_royale: MapRotationMode;
+  ranked: MapRotationMode;
+  ltm: MapRotationMode;
 }

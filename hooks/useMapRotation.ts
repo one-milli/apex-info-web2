@@ -24,7 +24,7 @@ const useMapRotation = (): UseMapRotationResult => {
         if (axios.isAxiosError(err) && err.message) {
           setError(new Error(err.message));
         } else {
-          setError(new Error("未知のエラーが発生しました"));
+          setError(new Error("不明なエラーが発生しました"));
         }
       } finally {
         setLoading(false);
