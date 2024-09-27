@@ -12,6 +12,20 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        "slide-right":
+          "slide-right 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)  infinite alternate ",
+      },
+      keyframes: {
+        "slide-right": {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(5px)",
+          },
+        },
+      },
     },
   },
   plugins: [],
