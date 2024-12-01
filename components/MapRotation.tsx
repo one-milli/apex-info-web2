@@ -102,8 +102,8 @@ const MapRotation: React.FC = () => {
           {modeJp}
         </h3>
         <div className="grid md:grid-cols-2 gap-4 p-4">
-          <MapCard title="現在のマップ" map={current} />
-          <MapCard title="次のマップ" map={next} />
+          <MapCard title="現在" map={current} />
+          <MapCard title="次回" map={next} />
         </div>
       </div>
     );
