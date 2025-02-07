@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Footer from "@/components/Footer";
 
 export default function Document() {
   return (
@@ -10,6 +11,7 @@ export default function Document() {
       </Head>
       <body className="antialiased min-h-[100vh] bg-gradient-to-br from-indigo-950 via-indigo-700 to-rose-700">
         <Main />
+        <Footer />
         <NextScript />
       </body>
     </Html>
