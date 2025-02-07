@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer: React.FC = () => {
-  const footerStyle = {
+  const footerStyle: React.CSSProperties = {
     backgroundColor: "#444",
     opacity: "0.5",
     padding: "20px",
