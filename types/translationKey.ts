@@ -3,4 +3,5 @@ export type TranslationKey =
   | "World's Edge"
   | "Olympus"
   | "Storm Point"
+  | "Broken Moon"
   | "E-District";
