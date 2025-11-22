@@ -1,22 +1,29 @@
 import React from "react";
 
 const Footer: React.FC = () => {
-  const footerStyle: React.CSSProperties = {
-    backgroundColor: "#444",
-    opacity: "0.5",
-    padding: "20px",
-    textAlign: "center",
-    fontSize: "14px",
-    color: "#ccc",
-    position: "sticky",
-    top: "100vh",
-  };
-
   return (
-    <footer style={footerStyle}>
-      <p>© Apex Legends Map Rotation. All rights reserved.</p>
-      <p>このサイトは非公式のファンサイトです。公式情報ではありません。</p>
-      <p>取得した情報の著作権は各所有者に帰属します。</p>
+    <footer className="bg-black/80 text-gray-500 text-xs text-center py-8 border-t border-white/10 mt-auto">
+      <div className="max-w-4xl mx-auto px-4 space-y-2">
+        <p className="font-bold text-gray-400 uppercase tracking-wider">
+          © Apex Legends Map Rotation
+        </p>
+        <p>
+          This is an unofficial fan site. Not affiliated with Electronic Arts or Respawn
+          Entertainment.
+        </p>
+        <p>
+          Data provided by{" "}
+          <a
+            href="https://apexlegendsstatus.com"
+            target="_blank"
+            rel="noreferrer"
+            className="text-apex-red hover:underline"
+          >
+            ApexLegendsStatus API
+          </a>
+          .
+        </p>
+      </div>
     </footer>
   );
 };

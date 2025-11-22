@@ -9,21 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "apex-red": "#DA292A",
+        "apex-dark": "#121212", // カード内部などの濃い色
+        "apex-gray": "#2F3136", // 全体背景用の少し明るいグレー
+      },
+      fontFamily: {
+        rajdhani: ["Rajdhani", "sans-serif"],
       },
       animation: {
-        "slide-right":
-          "slide-right 1s cubic-bezier(0.215, 0.610, 0.355, 1.000)  infinite alternate ",
+        "pulse-fast": "pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        glitch: "glitch 1.2s linear infinite", // グリッチアニメーション
       },
       keyframes: {
-        "slide-right": {
-          "0%": {
-            transform: "translateX(0)",
-          },
-          to: {
-            transform: "translateX(5px)",
-          },
+        glitch: {
+          "2%, 64%": { transform: "translate(2px,0) skew(0deg)" },
+          "4%, 60%": { transform: "translate(-2px,0) skew(0deg)" },
+          "62%": { transform: "translate(0,0) skew(5deg)" },
         },
       },
     },

@@ -3,21 +3,123 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #1a1a1a;
+  --foreground: #ededed;
+  --apex-red: #da292a;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Rajdhani", Arial, sans-serif;
+}
+
+/* スクロールバー設定（変更なし） */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--apex-red);
+}
+
+/* --- ここからグリッチエフェクト --- */
+.glitch-effect {
+  position: relative;
+  /* 元の文字色 */
+  color: white;
+}
+
+/* グリッチ用の残像レイヤー */
+.glitch-effect::after {
+  /* 重要: HTMLのdata-text属性の中身を表示する */
+  content: attr(data-text);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* 初期状態は隠しておく（または少しだけ見せる） */
+  clip-path: var(--move1);
+  opacity: 0;
+
+  /* グリッチのカットパターン定義 */
+  --move1: inset(50% 50% 50% 50%);
+  --move2: inset(31% 0 40% 0);
+  --move3: inset(39% 0 15% 0);
+  --move4: inset(45% 0 40% 0);
+  --move5: inset(45% 0 6% 0);
+  --move6: inset(14% 0 61% 0);
+}
+
+/* 親要素(.group)にホバーした時に発動 */
+.group:hover .glitch-effect::after {
+  opacity: 1;
+  animation: glitch_4011 1s steps(2, end);
+
+  /* 色収差（赤と青緑のズレ） */
+  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #da292a;
+  background-color: transparent;
+}
+
+/* ホバー時の本体の揺れ */
+.group:hover .glitch-effect {
+  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #da292a;
+}
+
+/* アニメーションキーフレーム（提供いただいたもの） */
+@keyframes glitch_4011 {
+  0% {
+    clip-path: var(--move1);
+    transform: translate(0px, -10px);
+  }
+  10% {
+    clip-path: var(--move2);
+    transform: translate(-10px, 10px);
+  }
+  20% {
+    clip-path: var(--move3);
+    transform: translate(10px, 0px);
+  }
+  30% {
+    clip-path: var(--move4);
+    transform: translate(-10px, 10px);
+  }
+  40% {
+    clip-path: var(--move5);
+    transform: translate(10px, -10px);
+  }
+  50% {
+    clip-path: var(--move6);
+    transform: translate(-10px, 10px);
+  }
+  60% {
+    clip-path: var(--move1);
+    transform: translate(10px, -10px);
+  }
+  70% {
+    clip-path: var(--move3);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--move2);
+    transform: translate(10px, -10px);
+  }
+  90% {
+    clip-path: var(--move4);
+    transform: translate(-10px, 10px);
+  }
+  100% {
+    clip-path: var(--move1);
+    transform: translate(0);
+  }
 }
 
 @layer utilities {
