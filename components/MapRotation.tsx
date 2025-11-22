@@ -130,7 +130,7 @@ const CurrentMapCard: React.FC<{ map: MapRotationEntry }> = ({ map }) => {
           src={map.asset}
           alt={map.map}
           fill
-          className="object-cover opacity-60 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
+          className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-apex-dark via-apex-dark/80 to-transparent" />
       </div>
